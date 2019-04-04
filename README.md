@@ -23,11 +23,20 @@ first install watchme:
 $ pip install watchme
 ```
 
-and then get the repository (this command is not written yet):
+and then get the repository:
 
 ```bash
-              # repository              # watcher name
-$ watchme get vsoch/watchme-air-quality air-quality
+              # repository                                     # watcher name
+$ watchme get https://www.github.com/vsoch/watchme-air-quality air-quality
+Added watcher watchme-air-quality
+```
+
+Conflrm that it was added:
+
+```bash
+$ watchme list
+purpleair
+air-quality
 ```
 
 This will install the data to your $HOME/.watchme folder by default, unless
@@ -43,6 +52,9 @@ You can then run the task manually:
 ```bash
 $ watchme run air-quality
 ```
+
+
+But likely you want to activate and schedule the task to run.
 
 
 ### Schedule the Task
@@ -61,6 +73,11 @@ $ crontab -l
 @hourly watchme run air-quality # watchme-air-quality
 ```
 
+Finally, ensure that the watcher is active:
+
+```bash
+$ watchme activate air-quality
+```
 
 ### Inspect task data
 
